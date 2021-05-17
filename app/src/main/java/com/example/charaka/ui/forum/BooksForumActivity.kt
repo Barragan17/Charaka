@@ -1,7 +1,8 @@
-package com.example.charaka
+package com.example.charaka.ui.forum
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.charaka.R
 
 class BooksForumActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

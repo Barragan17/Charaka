@@ -1,4 +1,4 @@
-package com.example.charaka.ui.home
+package com.example.charaka.ui.explore
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,17 +8,17 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.charaka.R
 
-class HomeFragment : Fragment() {
+class ExploreFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var exploreViewModel: ExploreViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        exploreViewModel =
+            ViewModelProvider(this).get(ExploreViewModel::class.java)
+        return inflater.inflate(R.layout.fragment_explore, container, false)
     }
 }

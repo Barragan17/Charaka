@@ -1,11 +1,12 @@
-package com.example.charaka
+package com.example.charaka.ui.settings
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.charaka.R
 
-class DetailActivity : AppCompatActivity() {
+class SettingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail)
+        setContentView(R.layout.activity_setting)
     }
 }

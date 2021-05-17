@@ -1,11 +1,10 @@
-package com.example.charaka
+package com.example.charaka.ui.login
 
 import android.content.Intent
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.charaka.databinding.ActivitySignInBinding
-import com.example.charaka.databinding.ActivitySignUpBinding
 
 class SignInActivity : AppCompatActivity() {
 

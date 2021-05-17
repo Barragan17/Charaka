@@ -1,10 +1,9 @@
-package com.example.charaka
+package com.example.charaka.ui.login
 
 import android.content.Intent
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import com.example.charaka.databinding.ActivitySignUpBinding
 
 class SignUpActivity : AppCompatActivity() {
@@ -20,7 +19,7 @@ class SignUpActivity : AppCompatActivity() {
         changeFont()
 
         binding.tvSignIn.setOnClickListener {
-            val intent = Intent(this,SignInActivity::class.java)
+            val intent = Intent(this, SignInActivity::class.java)
             startActivity(intent)
             finish()
         }
