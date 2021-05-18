@@ -67,6 +67,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_author" />
 
         <RatingBar
+            android:id="@+id/rb_books"
             style="?android:attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
