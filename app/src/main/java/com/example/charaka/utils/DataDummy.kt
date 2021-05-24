@@ -1,6 +1,7 @@
 package com.example.charaka.utils
 
 import com.example.charaka.data.local.entity.Book
+import com.example.charaka.data.local.entity.Post
 
 object DataDummy {
 
@@ -118,5 +119,132 @@ object DataDummy {
         books.add(books10)
 
         return books
+    }
+
+    fun generatePosts(): ArrayList<Post>{
+        val posts = ArrayList<Post>()
+
+        val post1 = Post(
+                1,
+                "Ragil",
+                "Mantap Sekali Bukunyaaaa",
+        "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
+                "Ready Player One",
+                "Ernest Cline",
+                4,
+                20,
+                20)
+
+        posts.add(post1)
+
+        val post2 = Post(
+                1,
+                "Ragil",
+                "Mantap Sekali Bukunyaaaa",
+                "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
+                "Ready Player One",
+                "Ernest Cline",
+                4,
+                20,
+                20)
+        posts.add(post2)
+
+        val post3 = Post(
+                1,
+                "Ragil",
+                "Mantap Sekali Bukunyaaaa",
+                "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
+                "Ready Player One",
+                "Ernest Cline",
+                4,
+                20,
+                20)
+        posts.add(post3)
+
+        val post4 = Post(
+                1,
+                "Ragil",
+                "Mantap Sekali Bukunyaaaa",
+                "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
+                "Ready Player One",
+                "Ernest Cline",
+                4,
+                20,
+                20)
+        posts.add(post4)
+
+        val post5 = Post(
+                1,
+                "Ragil",
+                "Mantap Sekali Bukunyaaaa",
+                "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
+                "Ready Player One",
+                "Ernest Cline",
+                4,
+                20,
+                20)
+        posts.add(post5)
+
+        val post6 = Post(
+                1,
+                "Ragil",
+                "Mantap Sekali Bukunyaaaa",
+                "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
+                "Ready Player One",
+                "Ernest Cline",
+                4,
+                20,
+                20)
+        posts.add(post6)
+
+        val post7 = Post(
+                1,
+                "Ragil",
+                "Mantap Sekali Bukunyaaaa",
+                "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
+                "Ready Player One",
+                "Ernest Cline",
+                4,
+                20,
+                20)
+        posts.add(post7)
+
+        val post8 = Post(
+                1,
+                "Ragil",
+                "Mantap Sekali Bukunyaaaa",
+                "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
+                "Ready Player One",
+                "Ernest Cline",
+                4,
+                20,
+                20)
+        posts.add(post8)
+
+        val post9 = Post(
+                1,
+                "Ragil",
+                "Mantap Sekali Bukunyaaaa",
+                "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
+                "Ready Player One",
+                "Ernest Cline",
+                4,
+                20,
+                20)
+        posts.add(post9)
+
+        val post10 = Post(
+                1,
+                "Ragil",
+                "Mantap Sekali Bukunyaaaa",
+                "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
+                "Ready Player One",
+                "Ernest Cline",
+                4,
+                20,
+                20)
+        posts.add(post10)
+
+        return posts
     }
 }
