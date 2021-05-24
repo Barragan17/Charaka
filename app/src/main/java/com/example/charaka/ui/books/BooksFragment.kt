@@ -1,6 +1,7 @@
 package com.example.charaka.ui.books
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import com.example.charaka.R
 import com.example.charaka.adapter.BooksAdapter
 import com.example.charaka.databinding.FragmentBooksBinding
 import com.example.charaka.utils.DataDummy
+import kotlin.math.log
 
 class BooksFragment : Fragment() {
 
@@ -25,13 +27,36 @@ class BooksFragment : Fragment() {
         booksViewModel =
             ViewModelProvider(this).get(BooksViewModel::class.java)
         binding = FragmentBooksBinding.inflate(layoutInflater)
-        val view: View? = binding.root
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         // for test purposes ignore the mvvm model
-        binding.rvBest.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        val listBookAdapter = BooksAdapter(DataDummy.generateBooks())
-        binding.rvBest.adapter = listBookAdapter
+        val bestBookAdapter = BooksAdapter()
+        bestBookAdapter.setBook(DataDummy.generateBooks())
+        binding.rvBest.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        Log.d("DUMMY", DataDummy.generateBooks().toString())
+        binding.rvBest.setHasFixedSize(true)
+        binding.rvBest.adapter = bestBookAdapter
+        binding.rvBest.visibility = View.VISIBLE
 
-        return view
+        val popularBookAdapter = BooksAdapter()
+        popularBookAdapter.setBook(DataDummy.generateBooks())
+        binding.rvPopular.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        binding.rvPopular.setHasFixedSize(true)
+        binding.rvPopular.adapter = popularBookAdapter
+        binding.rvPopular.visibility = View.VISIBLE
+
+        val recommendBookAdapter = BooksAdapter()
+        recommendBookAdapter.setBook(DataDummy.generateBooks())
+        binding.rvRecommendations.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        binding.rvRecommendations.setHasFixedSize(true)
+        binding.rvRecommendations.adapter = popularBookAdapter
+        binding.rvRecommendations.visibility = View.VISIBLE
+
+
+
     }
 }

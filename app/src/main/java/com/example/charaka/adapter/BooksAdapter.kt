@@ -7,8 +7,15 @@ import com.bumptech.glide.Glide
 import com.example.charaka.data.local.entity.Book
 import com.example.charaka.databinding.ItemBooksBinding
 
-class BooksAdapter(private var list: List<Book>): RecyclerView.Adapter<BooksAdapter.BooksViewHolder>(){
+class BooksAdapter: RecyclerView.Adapter<BooksAdapter.BooksViewHolder>(){
     private var listBooks = ArrayList<Book>()
+
+    fun setBook(books: List<Book>){
+        if(books == null) return
+        listBooks.clear()
+        listBooks.addAll(books)
+        notifyDataSetChanged()
+    }
 
     inner class BooksViewHolder(private val binding: ItemBooksBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(books: Book){
@@ -30,7 +37,7 @@ class BooksAdapter(private var list: List<Book>): RecyclerView.Adapter<BooksAdap
         parent: ViewGroup,
         viewType: Int
     ): BooksAdapter.BooksViewHolder {
-        val booksItemBinding = ItemBooksBinding.inflate(LayoutInflater.from(parent.context))
+        val booksItemBinding = ItemBooksBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return BooksViewHolder(booksItemBinding)
     }
 
