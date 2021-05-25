@@ -1,5 +1,9 @@
 package com.example.charaka.data.local.entity
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Post(
     val id: Int,
     val userName: String,
@@ -10,4 +14,4 @@ data class Post(
     val booksRating: Int,
     val likes: Int,
     val comments: Int
-)
+) : Parcelable

@@ -1,5 +1,6 @@
 package com.example.charaka.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -9,6 +10,7 @@ import com.example.charaka.databinding.ItemBooksBinding
 
 class BooksAdapter: RecyclerView.Adapter<BooksAdapter.BooksViewHolder>(){
     private var listBooks = ArrayList<Book>()
+    var onItemClick: ((Book) -> Unit)? = null
 
     fun setBook(books: List<Book>){
         if(books == null) return
@@ -29,7 +31,11 @@ class BooksAdapter: RecyclerView.Adapter<BooksAdapter.BooksViewHolder>(){
                     .into(ivBooks)
             }
         }
-
+        init {
+            binding.root.setOnClickListener {
+                onItemClick?.invoke(listBooks[adapterPosition])
+            }
+        }
 
     }
 

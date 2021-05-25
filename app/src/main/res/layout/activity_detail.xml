@@ -22,6 +22,7 @@
             app:layout_constraintEnd_toEndOf="parent">
             
             <ImageView
+                android:id="@+id/iv_cover"
                 android:layout_width="164dp"
                 android:layout_height="248dp"
                 android:src="@color/teal_200" />
@@ -125,6 +126,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/tv_rating"
             app:layout_constraintEnd_toEndOf="parent"
+            android:theme="@style/RatingBar"
             app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView

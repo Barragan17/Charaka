@@ -1,5 +1,6 @@
 package com.example.charaka.ui.books
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.charaka.R
 import com.example.charaka.adapter.BooksAdapter
 import com.example.charaka.databinding.FragmentBooksBinding
+import com.example.charaka.ui.detail.DetailActivity
 import com.example.charaka.utils.DataDummy
 import kotlin.math.log
 
@@ -42,12 +44,24 @@ class BooksFragment : Fragment() {
         binding.rvBest.adapter = bestBookAdapter
         binding.rvBest.visibility = View.VISIBLE
 
+        bestBookAdapter.onItemClick = { bestBook ->
+            val intent = Intent(activity, DetailActivity::class.java)
+            intent.putExtra(DetailActivity.EXTRA_BOOKS, bestBook)
+            startActivity(intent)
+        }
+
         val popularBookAdapter = BooksAdapter()
         popularBookAdapter.setBook(DataDummy.generateBooks())
         binding.rvPopular.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.rvPopular.setHasFixedSize(true)
         binding.rvPopular.adapter = popularBookAdapter
         binding.rvPopular.visibility = View.VISIBLE
+
+        popularBookAdapter.onItemClick = { popularBook ->
+            val intent = Intent(activity, DetailActivity::class.java)
+            intent.putExtra(DetailActivity.EXTRA_BOOKS, popularBook)
+            startActivity(intent)
+        }
 
         val recommendBookAdapter = BooksAdapter()
         recommendBookAdapter.setBook(DataDummy.generateBooks())
@@ -56,7 +70,10 @@ class BooksFragment : Fragment() {
         binding.rvRecommendations.adapter = popularBookAdapter
         binding.rvRecommendations.visibility = View.VISIBLE
 
-
-
+        recommendBookAdapter.onItemClick = { recommendBook ->
+            val intent = Intent(activity, DetailActivity::class.java)
+            intent.putExtra(DetailActivity.EXTRA_BOOKS, recommendBook)
+            startActivity(intent)
+        }
     }
 }
