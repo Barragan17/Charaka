@@ -2,6 +2,7 @@ package com.example.charaka.utils
 
 import com.example.charaka.data.local.entity.Book
 import com.example.charaka.data.local.entity.Post
+import com.example.charaka.data.local.entity.User
 
 object DataDummy {
 
@@ -246,5 +247,81 @@ object DataDummy {
         posts.add(post10)
 
         return posts
+    }
+
+    fun generateUsers(): ArrayList<User>{
+        val users = ArrayList<User>()
+
+        val users1 = User(
+                "1",
+                "Ragil",
+                "ragil_mantul"
+        )
+        users.add(users1)
+
+        val users2 = User(
+                "1",
+                "Ragil",
+                "ragil_mantul"
+        )
+        users.add(users2)
+
+        val users3 = User(
+                "1",
+                "Ragil",
+                "ragil_mantul"
+        )
+        users.add(users3)
+
+        val users4 = User(
+                "1",
+                "Ragil",
+                "ragil_mantul"
+        )
+        users.add(users4)
+
+        val users5 = User(
+                "1",
+                "Ragil",
+                "ragil_mantul"
+        )
+        users.add(users5)
+
+        val users6 = User(
+                "1",
+                "Ragil",
+                "ragil_mantul"
+        )
+        users.add(users6)
+
+        val users7 = User(
+                "1",
+                "Ragil",
+                "ragil_mantul"
+        )
+        users.add(users7)
+
+        val users8 = User(
+                "1",
+                "Ragil",
+                "ragil_mantul"
+        )
+        users.add(users8)
+
+        val users9 = User(
+                "1",
+                "Ragil",
+                "ragil_mantul"
+        )
+        users.add(users9)
+
+        val users10 = User(
+                "1",
+                "Ragil",
+                "ragil_mantul"
+        )
+        users.add(users10)
+
+        return users
     }
 }
