@@ -8,8 +8,8 @@ data class User(
         val id: String = "",
         val name: String = "",
         val username: String = "",
-        val postLiked: ArrayList<Post> = ArrayList(),
-        val postSaved: ArrayList<Post> = ArrayList(),
+        var postLiked: ArrayList<Post> = ArrayList(),
+        var postSaved: ArrayList<Post> = ArrayList(),
         val wantsToRead: Int = 0,
         val friends: ArrayList<User> = ArrayList(),
         val groups: ArrayList<Groups> = ArrayList()

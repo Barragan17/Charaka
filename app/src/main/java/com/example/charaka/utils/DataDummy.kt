@@ -3,10 +3,11 @@ package com.example.charaka.utils
 import com.example.charaka.data.local.entity.Book
 import com.example.charaka.data.local.entity.Post
 import com.example.charaka.data.local.entity.User
+import com.example.charaka.data.remote.ApiResponse
 
 object DataDummy {
 
-    fun generateBooks(): ArrayList<Book>{
+    fun generateBooks(): List<Book>{
         val books = ArrayList<Book>()
 
         val books1 = Book(
@@ -21,7 +22,7 @@ object DataDummy {
         books.add(books1)
 
         val books2 = Book(
-            1,
+            2,
             "Ready Player One",
             "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
             "Ernest Cline",
@@ -32,7 +33,7 @@ object DataDummy {
         books.add(books2)
 
         val books3 = Book(
-            1,
+            3,
             "Ready Player One",
             "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
             "Ernest Cline",
@@ -43,7 +44,7 @@ object DataDummy {
         books.add(books3)
 
         val books4 = Book(
-            1,
+            4,
             "Ready Player One",
             "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
             "Ernest Cline",
@@ -54,7 +55,7 @@ object DataDummy {
         books.add(books4)
 
         val books5 = Book(
-            1,
+            5,
             "Ready Player One",
             "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
             "Ernest Cline",
@@ -65,7 +66,7 @@ object DataDummy {
         books.add(books5)
 
         val books6 = Book(
-            1,
+            6,
             "Ready Player One",
             "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
             "Ernest Cline",
@@ -76,7 +77,7 @@ object DataDummy {
         books.add(books6)
 
         val books7 = Book(
-            1,
+            7,
             "Ready Player One",
             "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
             "Ernest Cline",
@@ -87,7 +88,7 @@ object DataDummy {
         books.add(books7)
 
         val books8 = Book(
-            1,
+            8,
             "Ready Player One",
             "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
             "Ernest Cline",
@@ -98,7 +99,7 @@ object DataDummy {
         books.add(books8)
 
         val books9 = Book(
-            1,
+            9,
             "Ready Player One",
             "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
             "Ernest Cline",
@@ -109,7 +110,7 @@ object DataDummy {
         books.add(books9)
 
         val books10 = Book(
-            1,
+            10,
             "Ready Player One",
             "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
             "Ernest Cline",
@@ -139,7 +140,7 @@ object DataDummy {
         posts.add(post1)
 
         val post2 = Post(
-                1,
+                2,
                 "Ragil",
                 "Mantap Sekali Bukunyaaaa",
                 "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
@@ -151,7 +152,7 @@ object DataDummy {
         posts.add(post2)
 
         val post3 = Post(
-                1,
+                3,
                 "Ragil",
                 "Mantap Sekali Bukunyaaaa",
                 "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
@@ -163,7 +164,7 @@ object DataDummy {
         posts.add(post3)
 
         val post4 = Post(
-                1,
+                4,
                 "Ragil",
                 "Mantap Sekali Bukunyaaaa",
                 "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
@@ -175,7 +176,7 @@ object DataDummy {
         posts.add(post4)
 
         val post5 = Post(
-                1,
+                5,
                 "Ragil",
                 "Mantap Sekali Bukunyaaaa",
                 "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
@@ -187,7 +188,7 @@ object DataDummy {
         posts.add(post5)
 
         val post6 = Post(
-                1,
+                6,
                 "Ragil",
                 "Mantap Sekali Bukunyaaaa",
                 "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
@@ -199,7 +200,7 @@ object DataDummy {
         posts.add(post6)
 
         val post7 = Post(
-                1,
+                7,
                 "Ragil",
                 "Mantap Sekali Bukunyaaaa",
                 "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
@@ -211,7 +212,7 @@ object DataDummy {
         posts.add(post7)
 
         val post8 = Post(
-                1,
+                8,
                 "Ragil",
                 "Mantap Sekali Bukunyaaaa",
                 "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
@@ -223,7 +224,7 @@ object DataDummy {
         posts.add(post8)
 
         val post9 = Post(
-                1,
+                9,
                 "Ragil",
                 "Mantap Sekali Bukunyaaaa",
                 "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
@@ -235,7 +236,7 @@ object DataDummy {
         posts.add(post9)
 
         val post10 = Post(
-                1,
+                10,
                 "Ragil",
                 "Mantap Sekali Bukunyaaaa",
                 "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",

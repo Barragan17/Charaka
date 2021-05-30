@@ -101,6 +101,16 @@
             app:layout_constraintEnd_toEndOf="parent"/>
 
         <Button
+            android:id="@+id/btn_read"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:text="Read"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line5"/>
+
+        <Button
             android:id="@+id/btn_want_to_read"
             android:layout_width="200dp"
             android:layout_height="50dp"
@@ -108,7 +118,7 @@
             android:text="Want to Read"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/line5" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_read" />
 
         <TextView
             android:id="@+id/tv_rating"

@@ -1,11 +1,14 @@
 package com.example.charaka.ui.detail
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.bumptech.glide.Glide
 import com.example.charaka.R
 import com.example.charaka.data.local.entity.Book
 import com.example.charaka.databinding.ActivityDetailBinding
+import org.koin.android.ext.android.bind
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class DetailActivity : AppCompatActivity() {
 
@@ -14,6 +17,8 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityDetailBinding
+    private val detailViewModel: DetailViewModel by viewModel()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
@@ -37,6 +42,40 @@ class DetailActivity : AppCompatActivity() {
                     .load(detailBook.bookCover)
                     .centerCrop()
                     .into(binding.ivCover)
+            var statusWantToRead = detailBook.wantToRead
+            var statusBookRead = detailBook.read
+            setWantToRead(statusWantToRead)
+            setBookRead(statusBookRead)
+            binding.btnWantToRead.setOnClickListener {
+                statusWantToRead = !statusWantToRead
+                detailViewModel.setWantToRead(detailBook, statusWantToRead)
+                setWantToRead(statusWantToRead)
+            }
+            binding.btnRead.setOnClickListener {
+                statusBookRead = !statusBookRead
+                detailViewModel.setRead(detailBook, statusBookRead)
+                setBookRead(statusBookRead)
+            }
+        }
+    }
+
+    private fun setWantToRead(state: Boolean){
+        if(state){
+            binding.btnWantToRead.setBackgroundColor(resources.getColor(R.color.white))
+            binding.btnWantToRead.setTextColor(resources.getColor(R.color.blue_200))
+        }else {
+            binding.btnWantToRead.setBackgroundColor(resources.getColor(R.color.blue_200))
+            binding.btnWantToRead.setTextColor(resources.getColor(R.color.white))
+        }
+    }
+
+    private fun setBookRead(state: Boolean){
+        if(state){
+            binding.btnRead.setBackgroundColor(resources.getColor(R.color.white))
+            binding.btnRead.setTextColor(resources.getColor(R.color.blue_200))
+        } else {
+            binding.btnRead.setBackgroundColor(resources.getColor(R.color.blue_200))
+            binding.btnRead.setTextColor(resources.getColor(R.color.white))
         }
     }
 }

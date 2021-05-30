@@ -11,10 +11,12 @@ import com.example.charaka.adapter.BooksAdapter
 import com.example.charaka.adapter.UserAdapter
 import com.example.charaka.databinding.FragmentProfileBinding
 import com.example.charaka.utils.DataDummy
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class ProfileFragment : Fragment() {
 
     private lateinit var binding: FragmentProfileBinding
+    private val profileViewModel: ProfileViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,27 +31,47 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val bookAdapter = BooksAdapter()
-        bookAdapter.setBook(DataDummy.generateBooks())
-
-        binding.rvWantRead.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        binding.rvWantRead.isNestedScrollingEnabled = false
-        binding.rvWantRead.setHasFixedSize(true)
-        binding.rvWantRead.adapter = bookAdapter
-        binding.rvWantRead.visibility = View.VISIBLE
-
-        binding.rvRead.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        binding.rvRead.setHasFixedSize(true)
-        binding.rvRead.adapter = bookAdapter
-        binding.rvRead.visibility = View.VISIBLE
-
-        val userAdapter = UserAdapter()
-        userAdapter.setUser(DataDummy.generateUsers())
-
-        binding.rvFriends.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        binding.rvFriends.setHasFixedSize(true)
-        binding.rvFriends.adapter = userAdapter
-        binding.rvFriends.visibility = View.VISIBLE
 
 
+        profileViewModel.getWantToRead().observe(viewLifecycleOwner, { wantToRead->
+            binding.rvWantRead.visibility = View.VISIBLE
+            bookAdapter.setBook(wantToRead)
+        })
+
+        profileViewModel.getRead().observe(viewLifecycleOwner, { read ->
+            binding.rvRead.visibility = View.VISIBLE
+            bookAdapter.setBook(read)
+        })
+
+        with(binding.rvWantRead){
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            setHasFixedSize(true)
+            adapter = bookAdapter
+        }
+
+        with(binding.rvRead){
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            setHasFixedSize(true)
+            adapter = bookAdapter
+        }
+
+//        binding.rvWantRead.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+//        binding.rvWantRead.isNestedScrollingEnabled = false
+//        binding.rvWantRead.setHasFixedSize(true)
+//        binding.rvWantRead.adapter = bookAdapter
+//        binding.rvWantRead.visibility = View.VISIBLE
+//
+//        binding.rvRead.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+//        binding.rvRead.setHasFixedSize(true)
+//        binding.rvRead.adapter = bookAdapter
+//        binding.rvRead.visibility = View.VISIBLE
+//
+//        val userAdapter = UserAdapter()
+//        userAdapter.setUser(DataDummy.generateUsers())
+//
+//        binding.rvFriends.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+//        binding.rvFriends.setHasFixedSize(true)
+//        binding.rvFriends.adapter = userAdapter
+//        binding.rvFriends.visibility = View.VISIBLE
     }
 }
