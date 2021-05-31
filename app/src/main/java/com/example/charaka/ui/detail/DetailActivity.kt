@@ -1,12 +1,16 @@
 package com.example.charaka.ui.detail
 
 import android.graphics.Color
+import android.media.Rating
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.charaka.R
 import com.example.charaka.data.local.entity.Book
 import com.example.charaka.databinding.ActivityDetailBinding
+import com.shashank.sony.fancytoastlib.FancyToast
 import org.koin.android.ext.android.bind
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -36,7 +40,7 @@ class DetailActivity : AppCompatActivity() {
         detailBook?.let {
             binding.tvTitleDetails.text = detailBook.bookTitle
             binding.tvAuthorDetails.text = detailBook.bookAuthor
-            binding.ratingRate.rating = detailBook.bookRatings.toFloat()
+            binding.tvRating.text = detailBook.bookRatings.toString()
             binding.tvDescriptionDetail.text = detailBook.bookDesc
             Glide.with(this)
                     .load(detailBook.bookCover)
@@ -55,6 +59,10 @@ class DetailActivity : AppCompatActivity() {
                 statusBookRead = !statusBookRead
                 detailViewModel.setRead(detailBook, statusBookRead)
                 setBookRead(statusBookRead)
+            }
+            binding.ratingRate.setOnRatingBarChangeListener { _, rating, _ ->
+                detailViewModel.setRating(detailBook, rating.toInt())
+                FancyToast.makeText(this, "Rating Saved", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show()
             }
         }
     }

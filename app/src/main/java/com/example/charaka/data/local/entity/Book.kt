@@ -26,7 +26,7 @@ data class Book (
     val bookAuthor: String,
 
     @ColumnInfo(name = "bookRatings")
-    val bookRatings: Int,
+    var bookRatings: Int,
 
     @ColumnInfo(name = "bookReviews")
     val bookReviews: Int,

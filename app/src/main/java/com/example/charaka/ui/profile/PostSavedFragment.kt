@@ -10,10 +10,12 @@ import com.example.charaka.R
 import com.example.charaka.adapter.PostAdapter
 import com.example.charaka.databinding.FragmentPostSavedBinding
 import com.example.charaka.utils.DataDummy
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class PostSavedFragment : Fragment() {
 
     private lateinit var binding: FragmentPostSavedBinding
+    private val postSavedViewModel: PostSavedViewModel by viewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -25,11 +27,15 @@ class PostSavedFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val postSavedAdapter = PostAdapter()
-        postSavedAdapter.setPost(DataDummy.generatePosts())
+        postSavedViewModel.getPostSaved().observe(viewLifecycleOwner, { postSaved ->
+            binding.rvPostSaved.visibility = View.VISIBLE
+            postSavedAdapter.setPost(postSaved)
+        })
 
-        binding.rvPostSaved.layoutManager = LinearLayoutManager(context)
-        binding.rvPostSaved.setHasFixedSize(true)
-        binding.rvPostSaved.adapter = postSavedAdapter
-        binding.rvPostSaved.visibility = View.VISIBLE
+        with(binding.rvPostSaved){
+            layoutManager = LinearLayoutManager(context)
+            setHasFixedSize(true)
+            adapter = postSavedAdapter
+        }
     }
 }

@@ -1,19 +1,18 @@
 package com.example.charaka.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.charaka.data.local.entity.Book
 import com.example.charaka.data.local.entity.Post
-import com.example.charaka.databinding.ItemBooksBinding
 import com.example.charaka.databinding.ItemPostsBinding
+import com.example.charaka.ui.detail.PostDetailActivity
 
 class PostAdapter: RecyclerView.Adapter<PostAdapter.PostViewHolder>(){
     private var listPosts = ArrayList<Post>()
 
     fun setPost(posts: List<Post>){
-        if(posts == null) return
         listPosts.clear()
         listPosts.addAll(posts)
         notifyDataSetChanged()
@@ -33,10 +32,13 @@ class PostAdapter: RecyclerView.Adapter<PostAdapter.PostViewHolder>(){
                         .into(ivBooks)
                 tvLike.text = posts.likes.toString()
                 tvComment.text = posts.comments.toString()
+                itemView.setOnClickListener {
+                    val intent = Intent(itemView.context, PostDetailActivity::class.java)
+                    intent.putExtra(PostDetailActivity.EXTRA_POST, posts)
+                    itemView.context.startActivity(intent)
+                }
             }
         }
-
-
     }
 
     override fun onCreateViewHolder(
@@ -55,5 +57,4 @@ class PostAdapter: RecyclerView.Adapter<PostAdapter.PostViewHolder>(){
     override fun getItemCount(): Int {
         return listPosts.size
     }
-
 }

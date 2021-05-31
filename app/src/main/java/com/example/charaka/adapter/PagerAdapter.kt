@@ -20,10 +20,10 @@ class PagerAdapter(activity: AppCompatActivity) : FragmentStateAdapter(activity)
                 fragment = MyPostFragment()
             }
             1 -> {
-                fragment = PostLikedFragment()
+                fragment = PostSavedFragment()
             }
             2 -> {
-                fragment = PostSavedFragment()
+                fragment = PostLikedFragment()
             }
             3 -> {
                 fragment = ProfileFragment()

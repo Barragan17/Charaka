@@ -103,4 +103,8 @@ class DataRepository(
         appExecutors.diskIO().execute { localDataSource.setPostSaved(post, state) }
     }
 
+    override fun setRating(book: Book, rating: Int) {
+        appExecutors.diskIO().execute { localDataSource.setRatings(book, rating) }
+    }
+
 }

@@ -10,10 +10,12 @@ import com.example.charaka.R
 import com.example.charaka.adapter.PostAdapter
 import com.example.charaka.databinding.FragmentPostLikedBinding
 import com.example.charaka.utils.DataDummy
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class PostLikedFragment : Fragment() {
 
     private lateinit var binding: FragmentPostLikedBinding
+    private val postLikedViewModel: PostLikedViewModel by viewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -26,10 +28,16 @@ class PostLikedFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val postLikedAdapter = PostAdapter()
-        postLikedAdapter.setPost(DataDummy.generatePosts())
-        binding.rvPostLiked.layoutManager = LinearLayoutManager(context)
-        binding.rvPostLiked.setHasFixedSize(true)
-        binding.rvPostLiked.adapter = postLikedAdapter
-        binding.rvPostLiked.visibility = View.VISIBLE
+
+        postLikedViewModel.getPostLiked().observe(viewLifecycleOwner, { postLiked ->
+            binding.rvPostLiked.visibility = View.VISIBLE
+            postLikedAdapter.setPost(postLiked)
+        })
+
+        with(binding.rvPostLiked){
+            layoutManager = LinearLayoutManager(context)
+            setHasFixedSize(true)
+            adapter = postLikedAdapter
+        }
     }
 }

@@ -9,24 +9,24 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        
+
         <LinearLayout
             android:id="@+id/linear_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/teal_700"
-            android:padding="10dp"
             android:gravity="center"
-            app:layout_constraintTop_toTopOf="parent"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-            
+            app:layout_constraintTop_toTopOf="parent">
+
             <ImageView
                 android:id="@+id/iv_cover"
                 android:layout_width="164dp"
                 android:layout_height="248dp"
                 android:src="@color/teal_200" />
-            
+
         </LinearLayout>
 
         <TextView
@@ -50,6 +50,38 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_title_details" />
 
+        <ImageView
+            android:id="@+id/img_star"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/ic_baseline_star_rate_24"
+            app:layout_constraintBottom_toTopOf="@+id/line4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.475"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_author_details" />
+
+        <TextView
+            android:id="@+id/tv_star_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="4"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@+id/img_star"
+            app:layout_constraintTop_toBottomOf="@+id/tv_author_details" />
+
+        <TextView
+            android:id="@+id/tv_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent" />
+
         <TextView
             android:id="@+id/line4"
             android:layout_width="match_parent"
@@ -58,7 +90,7 @@
             android:background="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_author_details" />
+            app:layout_constraintTop_toBottomOf="@+id/img_star" />
 
         <TextView
             android:id="@+id/tv_rate"
@@ -96,9 +128,9 @@
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
             android:background="#000000"
-            app:layout_constraintTop_toBottomOf="@+id/tv_reviews"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@+id/tv_reviews" />
 
         <Button
             android:id="@+id/btn_read"
@@ -108,7 +140,7 @@
             android:text="Read"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/line5"/>
+            app:layout_constraintTop_toBottomOf="@+id/line5" />
 
         <Button
             android:id="@+id/btn_want_to_read"
@@ -121,11 +153,11 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_read" />
 
         <TextView
-            android:id="@+id/tv_rating"
+            android:id="@+id/tv_rating_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Rate It"
+            android:text="Rate This Book"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_want_to_read" />
@@ -134,10 +166,10 @@
             android:id="@+id/rating_rate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/tv_rating"
-            app:layout_constraintEnd_toEndOf="parent"
             android:theme="@style/RatingBar"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rating_text" />
 
         <TextView
             android:id="@+id/line6"
@@ -145,9 +177,9 @@
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
             android:background="#000000"
-            app:layout_constraintTop_toBottomOf="@+id/rating_rate"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@+id/rating_rate" />
 
         <TextView
             android:id="@+id/tv_description"
@@ -155,8 +187,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Book Description"
-            android:textStyle="bold"
             android:textColor="@color/black"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/line6" />
@@ -167,9 +199,9 @@
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
             android:background="#000000"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_description"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_description" />
 
         <TextView
             android:id="@+id/tv_description_detail"

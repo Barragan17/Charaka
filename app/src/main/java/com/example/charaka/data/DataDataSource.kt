@@ -25,4 +25,6 @@ interface DataDataSource {
     fun setLikedPosts(post: Post, state: Boolean)
 
     fun setSavedPost(post: Post, state: Boolean)
+
+    fun setRating(book: Book, rating: Int)
 }

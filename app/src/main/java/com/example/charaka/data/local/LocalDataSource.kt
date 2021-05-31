@@ -35,13 +35,18 @@ class LocalDataSource(private val dataDao: DataDao) {
     }
 
     fun setPostSaved(post: Post, newState: Boolean){
-        post.liked = newState
+        post.saved = newState
         dataDao.updatePost(post)
     }
 
     fun setPostLiked(post: Post, newState: Boolean){
-        post.saved = newState
+        post.liked = newState
         dataDao.updatePost(post)
+    }
+
+    fun setRatings(books: Book, rating: Int){
+        books.bookRatings = rating
+        dataDao.updateBooks(books)
     }
 
     fun updateBooks(books: Book){
