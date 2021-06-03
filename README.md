@@ -11,8 +11,8 @@ Charaka was built from 3 different parts:
 
 ### Team
 * Azhara Fathin (ML Developer)
-* Linus Randu (ML Developer)
-* Tegar (Android Developer)
+* Linus Randu D (ML Developer)
+* Tegar Taufik R (Android Developer)
 * Vina Maulida (Android Developer)
 * Alexius Adhitya K (Cloud Engineer)
 * Nurrizky Imani (Cloud Engineer)
