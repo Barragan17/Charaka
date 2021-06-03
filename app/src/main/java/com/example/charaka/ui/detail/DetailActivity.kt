@@ -23,7 +23,7 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
     private val detailViewModel: DetailViewModel by viewModel()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -36,12 +36,13 @@ class DetailActivity : AppCompatActivity() {
         populateBooks(detailBook)
     }
 
-    private fun populateBooks(detailBook: Book?){
+    private fun populateBooks(detailBook: Book?) {
         detailBook?.let {
             binding.tvTitleDetails.text = detailBook.bookTitle
             binding.tvAuthorDetails.text = detailBook.bookAuthor
             binding.tvRating.text = detailBook.bookRatings.toString()
             binding.tvDescriptionDetail.text = detailBook.bookDesc
+            binding.ratingRate.rating = detailBook.userRatings.toFloat()
             Glide.with(this)
                     .load(detailBook.bookCover)
                     .centerCrop()
@@ -68,17 +69,17 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun setWantToRead(state: Boolean){
-        if(state){
+        if(state) {
             binding.btnWantToRead.setBackgroundColor(resources.getColor(R.color.white))
             binding.btnWantToRead.setTextColor(resources.getColor(R.color.blue_200))
-        }else {
+        } else {
             binding.btnWantToRead.setBackgroundColor(resources.getColor(R.color.blue_200))
             binding.btnWantToRead.setTextColor(resources.getColor(R.color.white))
         }
     }
 
     private fun setBookRead(state: Boolean){
-        if(state){
+        if(state) {
             binding.btnRead.setBackgroundColor(resources.getColor(R.color.white))
             binding.btnRead.setTextColor(resources.getColor(R.color.blue_200))
         } else {

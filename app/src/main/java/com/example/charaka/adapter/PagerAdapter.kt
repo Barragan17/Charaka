@@ -2,6 +2,7 @@ package com.example.charaka.adapter
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.charaka.ui.profile.MyPostFragment
 import com.example.charaka.ui.profile.PostLikedFragment
@@ -31,5 +32,4 @@ class PagerAdapter(activity: AppCompatActivity) : FragmentStateAdapter(activity)
         }
         return fragment as Fragment
     }
-
 }

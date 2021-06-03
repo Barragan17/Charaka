@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.charaka.data.local.entity.Book
 import com.example.charaka.data.local.entity.Post
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface DataDao {

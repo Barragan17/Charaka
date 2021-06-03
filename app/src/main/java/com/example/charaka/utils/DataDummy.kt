@@ -11,110 +11,120 @@ object DataDummy {
         val books = ArrayList<Book>()
 
         val books1 = Book(
-            1,
+            "1",
             "Ready Player One",
             "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
             "Ernest Cline",
             9,
+            0,
             0,
             "The story, set in a dystopia in 2045, follows protagonist Wade Watts on his search for an Easter egg in a worldwide virtual reality game, the discovery of which would lead him to inherit the game creator's fortune."
         )
         books.add(books1)
 
         val books2 = Book(
-            2,
+            "2",
             "Ready Player One",
             "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
             "Ernest Cline",
             9,
+            0,
             0,
             "The story, set in a dystopia in 2045, follows protagonist Wade Watts on his search for an Easter egg in a worldwide virtual reality game, the discovery of which would lead him to inherit the game creator's fortune."
         )
         books.add(books2)
 
         val books3 = Book(
-            3,
+            "3",
             "Ready Player One",
             "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
             "Ernest Cline",
             9,
+            0,
             0,
             "The story, set in a dystopia in 2045, follows protagonist Wade Watts on his search for an Easter egg in a worldwide virtual reality game, the discovery of which would lead him to inherit the game creator's fortune."
         )
         books.add(books3)
 
         val books4 = Book(
-            4,
+            "4",
             "Ready Player One",
             "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
             "Ernest Cline",
             9,
+            0,
             0,
             "The story, set in a dystopia in 2045, follows protagonist Wade Watts on his search for an Easter egg in a worldwide virtual reality game, the discovery of which would lead him to inherit the game creator's fortune."
         )
         books.add(books4)
 
         val books5 = Book(
-            5,
+            "5",
             "Ready Player One",
             "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
             "Ernest Cline",
             9,
+            0,
             0,
             "The story, set in a dystopia in 2045, follows protagonist Wade Watts on his search for an Easter egg in a worldwide virtual reality game, the discovery of which would lead him to inherit the game creator's fortune."
         )
         books.add(books5)
 
         val books6 = Book(
-            6,
+            "6",
             "Ready Player One",
             "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
             "Ernest Cline",
             9,
+            0,
             0,
             "The story, set in a dystopia in 2045, follows protagonist Wade Watts on his search for an Easter egg in a worldwide virtual reality game, the discovery of which would lead him to inherit the game creator's fortune."
         )
         books.add(books6)
 
         val books7 = Book(
-            7,
+            "7",
             "Ready Player One",
             "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
             "Ernest Cline",
             9,
+            0,
             0,
             "The story, set in a dystopia in 2045, follows protagonist Wade Watts on his search for an Easter egg in a worldwide virtual reality game, the discovery of which would lead him to inherit the game creator's fortune."
         )
         books.add(books7)
 
         val books8 = Book(
-            8,
+            "8",
             "Ready Player One",
             "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
             "Ernest Cline",
             9,
+            0,
             0,
             "The story, set in a dystopia in 2045, follows protagonist Wade Watts on his search for an Easter egg in a worldwide virtual reality game, the discovery of which would lead him to inherit the game creator's fortune."
         )
         books.add(books8)
 
         val books9 = Book(
-            9,
+            "9",
             "Ready Player One",
             "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
             "Ernest Cline",
             9,
+            0,
             0,
             "The story, set in a dystopia in 2045, follows protagonist Wade Watts on his search for an Easter egg in a worldwide virtual reality game, the discovery of which would lead him to inherit the game creator's fortune."
         )
         books.add(books9)
 
         val books10 = Book(
-            10,
+            "10",
             "Ready Player One",
             "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
             "Ernest Cline",
             9,
+            0,
             0,
             "The story, set in a dystopia in 2045, follows protagonist Wade Watts on his search for an Easter egg in a worldwide virtual reality game, the discovery of which would lead him to inherit the game creator's fortune."
         )

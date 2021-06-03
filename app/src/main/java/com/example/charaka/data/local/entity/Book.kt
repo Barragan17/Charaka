@@ -14,7 +14,7 @@ data class Book (
     @PrimaryKey
     @NonNull
     @ColumnInfo(name = "bookId")
-    val bookId: Int,
+    val bookId: String,
 
     @ColumnInfo(name = "bookTitle")
     val bookTitle: String,
@@ -26,10 +26,13 @@ data class Book (
     val bookAuthor: String,
 
     @ColumnInfo(name = "bookRatings")
-    var bookRatings: Int,
+    var bookRatings: Int = 0,
+
+    @ColumnInfo(name = "userRatings")
+    var userRatings: Int = 0,
 
     @ColumnInfo(name = "bookReviews")
-    val bookReviews: Int,
+    var bookReviews: Int = 0,
 
     @ColumnInfo(name = "bookDesc")
     val bookDesc: String,

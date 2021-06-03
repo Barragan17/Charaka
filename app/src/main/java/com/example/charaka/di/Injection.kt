@@ -10,6 +10,7 @@ import com.example.charaka.ui.books.BooksViewModel
 import com.example.charaka.ui.detail.DetailViewModel
 import com.example.charaka.ui.detail.PostDetailViewModel
 import com.example.charaka.ui.explore.ExploreViewModel
+import com.example.charaka.ui.explore.SearchViewModel
 import com.example.charaka.ui.home.HomeViewModel
 import com.example.charaka.ui.profile.PostLikedViewModel
 import com.example.charaka.ui.profile.PostSavedViewModel
@@ -45,4 +46,5 @@ val viewModelModule = module {
     viewModel { PostDetailViewModel(get()) }
     viewModel { PostSavedViewModel(get()) }
     viewModel { PostLikedViewModel(get()) }
+    viewModel { SearchViewModel() }
 }

@@ -1,13 +1,17 @@
 package com.example.charaka.data
 
+import android.util.Log
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.example.charaka.data.local.LocalDataSource
 import com.example.charaka.data.local.entity.Book
 import com.example.charaka.data.local.entity.Post
 import com.example.charaka.data.remote.ApiResponse
 import com.example.charaka.data.remote.RemoteDataSource
+import com.example.charaka.data.remote.response.ItemsItem
 import com.example.charaka.utils.AppExecutors
 import com.example.charaka.vo.Resource
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.newFixedThreadPoolContext
 
 class DataRepository(
@@ -36,6 +40,7 @@ class DataRepository(
                     response.bookCover,
                     response.bookAuthor,
                     response.bookRatings,
+                    response.userRatings,
                     response.bookReviews,
                     response.bookDesc)
                     bookList.add(books)
@@ -80,6 +85,25 @@ class DataRepository(
 
     override fun getWantToRead(): LiveData<List<Book>> =
         localDataSource.getWantToRead()
+
+    override fun getSearch(search: String): LiveData<List<Book>> {
+        val data = remoteDataSource.searchBooks(search)
+        val searchList = MutableLiveData<List<Book>>()
+        val booksList = ArrayList<Book>()
+//        Log.d("Dataaa", data.value.toString())
+//        for (response in data.value!!){
+//            val books = Book(response.id!!,
+//            response.volumeInfo?.title!!,
+//            response.volumeInfo.imageLinks?.thumbnail!!,
+//            response.volumeInfo.authors?.get(0)!!,
+//            0,
+//            0,
+//            response.volumeInfo.description!!)
+//            booksList.add(books)
+//        }
+//        searchList.postValue(booksList)
+        return searchList
+    }
 
     override fun getLikedPosts(): LiveData<List<Post>> =
         localDataSource.getLikedPosts()

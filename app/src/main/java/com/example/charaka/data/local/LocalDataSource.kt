@@ -4,6 +4,10 @@ import androidx.lifecycle.LiveData
 import com.example.charaka.data.local.entity.Book
 import com.example.charaka.data.local.entity.Post
 import com.example.charaka.data.local.room.DataDao
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.conflate
+import kotlinx.coroutines.flow.flowOn
 import java.sql.DatabaseMetaData
 
 class LocalDataSource(private val dataDao: DataDao) {
@@ -45,7 +49,7 @@ class LocalDataSource(private val dataDao: DataDao) {
     }
 
     fun setRatings(books: Book, rating: Int){
-        books.bookRatings = rating
+        books.userRatings = rating
         dataDao.updateBooks(books)
     }
 
