@@ -25,6 +25,15 @@ data class Book (
     @ColumnInfo(name = "bookAuthor")
     val bookAuthor: String,
 
+    @ColumnInfo(name = "isBest")
+    var bookIsBest: Boolean = false,
+
+    @ColumnInfo(name = "isPopular")
+    var bookIsPopular: Boolean = false,
+
+    @ColumnInfo(name = "isRecommend")
+    var bookIsRecommend: Boolean = false,
+
     @ColumnInfo(name = "bookRatings")
     var bookRatings: Int = 0,
 

@@ -4,21 +4,31 @@ import androidx.lifecycle.LiveData
 import com.example.charaka.data.local.entity.Book
 import com.example.charaka.data.local.entity.Post
 import com.example.charaka.data.local.room.DataDao
+import com.google.android.material.appbar.AppBarLayout
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.conflate
 import kotlinx.coroutines.flow.flowOn
+import java.lang.reflect.Array
 import java.sql.DatabaseMetaData
 
 class LocalDataSource(private val dataDao: DataDao) {
 
     fun getAllBooks(): LiveData<List<Book>> = dataDao.getBooks()
 
+    fun getAllBestBook(): LiveData<List<Book>> = dataDao.getBestBooks()
+
+    fun getAllPopularBook(): LiveData<List<Book>> = dataDao.getPopularBooks()
+
+    fun getAllRecommendedBook(): LiveData<List<Book>> = dataDao.getRecommendedBooks()
+
     fun getAllPosts(): LiveData<List<Post>> = dataDao.getPost()
 
     fun getLikedPosts(): LiveData<List<Post>> = dataDao.getLikedPost()
 
     fun getSavedPost(): LiveData<List<Post>> = dataDao.getSavedPost()
+
+    fun getCreatedPost(): LiveData<List<Post>> = dataDao.getCreatedPost()
 
     fun getRead(): LiveData<List<Book>> = dataDao.getRead()
 
@@ -46,6 +56,12 @@ class LocalDataSource(private val dataDao: DataDao) {
     fun setPostLiked(post: Post, newState: Boolean){
         post.liked = newState
         dataDao.updatePost(post)
+    }
+
+    fun setCreatedPost(post: Post){
+        val posts = ArrayList<Post>()
+        posts.add(post)
+        dataDao.insertPosts(posts)
     }
 
     fun setRatings(books: Book, rating: Int){

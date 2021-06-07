@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.charaka.AddPostActivity
 import com.example.charaka.R
 import com.example.charaka.adapter.PostAdapter
+import com.example.charaka.data.remote.response.PostInfo
 import com.example.charaka.databinding.FragmentBooksBinding
 import com.example.charaka.databinding.FragmentHomeBinding
 import com.example.charaka.utils.DataDummy
@@ -38,17 +39,14 @@ class HomeFragment : Fragment() {
 
         val postAdapter = PostAdapter()
 
-        homeViewModel.getAllPosts().observe(viewLifecycleOwner, { posts ->
+        homeViewModel.getCreatedPost().observe(viewLifecycleOwner, { posts ->
             if(posts != null) {
-                when(posts.status){
-                    Status.SUCCESS -> {
-                        postAdapter.setPost(posts.data!!)
-                        postAdapter.notifyDataSetChanged()
-                    }
-                    Status.ERROR -> {
-                        Toast.makeText(context, "There is some mistakes", Toast.LENGTH_SHORT).show()
-                    }
-                }
+                binding.progressBar.visibility = View.GONE
+                postAdapter.setPost(posts)
+                postAdapter.notifyDataSetChanged()
+            } else {
+                binding.progressBar.visibility = View.GONE
+                binding.ivNotFound.visibility = View.VISIBLE
             }
         })
 
@@ -57,11 +55,5 @@ class HomeFragment : Fragment() {
             setHasFixedSize(true)
             adapter = postAdapter
         }
-
-        binding.fabButton.setOnClickListener {
-            val intent = Intent(context, AddPostActivity::class.java)
-            startActivity(intent)
-        }
-
     }
 }

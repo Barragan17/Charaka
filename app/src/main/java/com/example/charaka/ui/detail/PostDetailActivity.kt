@@ -1,10 +1,12 @@
 package com.example.charaka.ui.detail
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.bumptech.glide.Glide
+import com.example.charaka.AddPostActivity
 import com.example.charaka.data.local.entity.Post
 import com.example.charaka.databinding.ActivityPostDetailBinding
 import org.koin.android.viewmodel.ext.android.viewModel

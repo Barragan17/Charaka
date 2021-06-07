@@ -50,7 +50,7 @@ data class VolumeInfo(
 	val maturityRating: String?,
 
 	@field:SerializedName("averageRating")
-	val averageRating: Int?,
+	val averageRating: Float?,
 
 	@field:SerializedName("authors")
 	val authors: List<String?>?,

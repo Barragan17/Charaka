@@ -35,4 +35,9 @@
     <string name="tab_my_posts">My Posts</string>
     <string name="post_liked">Post Liked</string>
     <string name="post_saved">Post Saved</string>
+    <string name="description">Description</string>
+    <string name="done">Done</string>
+    <string name="your_ratings">Your Ratings</string>
+    <string name="ratings">Ratings</string>
+    <string name="friends">Friends</string>
 </resources>

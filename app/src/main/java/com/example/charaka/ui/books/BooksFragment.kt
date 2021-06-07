@@ -40,20 +40,57 @@ class BooksFragment : Fragment() {
             val bestBooksAdapter = BooksAdapter()
             val popularBookAdapter = BooksAdapter()
             val recommendBookAdapter = BooksAdapter()
-            booksViewModel.getBooks().observe(viewLifecycleOwner, { books ->
+            booksViewModel.getBestBooks().observe(viewLifecycleOwner, { books ->
                 if(books != null){
                     when(books.status){
+                        Status.LOADING -> {
+                            binding.progressBarBest.visibility = View.VISIBLE
+                        }
                         Status.SUCCESS -> {
+                            binding.progressBarBest.visibility = View.GONE
                             bestBooksAdapter.setBook(books.data!!)
                             bestBooksAdapter.notifyDataSetChanged()
+                        }
+                        Status.ERROR -> {
+                            binding.progressBarBest.visibility = View.GONE
+                            Toast.makeText(context, "There is some mistakes", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+            })
 
-                            popularBookAdapter.setBook(books.data)
+            booksViewModel.getPopularBooks().observe(viewLifecycleOwner, { books ->
+                if(books != null){
+                    when(books.status){
+                        Status.LOADING -> {
+                            binding.progressBarPopular.visibility = View.VISIBLE
+                        }
+                        Status.SUCCESS -> {
+                            binding.progressBarPopular.visibility = View.GONE
+                            popularBookAdapter.setBook(books.data!!)
                             popularBookAdapter.notifyDataSetChanged()
+                        }
+                        Status.ERROR -> {
+                            binding.progressBarPopular.visibility = View.GONE
+                            Toast.makeText(context, "There is some mistakes", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+            })
 
-                            recommendBookAdapter.setBook(books.data)
+            booksViewModel.getRecommendedBooks().observe(viewLifecycleOwner, { books ->
+                if(books != null){
+                    when(books.status){
+                        Status.LOADING -> {
+                            binding.progressBarRecommend.visibility = View.VISIBLE
+                        }
+                        Status.SUCCESS -> {
+                            binding.progressBarRecommend.visibility = View.GONE
+                            recommendBookAdapter.setBook(books.data!!)
                             recommendBookAdapter.notifyDataSetChanged()
                         }
                         Status.ERROR -> {
+                            binding.progressBarRecommend.visibility = View.GONE
                             Toast.makeText(context, "There is some mistakes", Toast.LENGTH_SHORT).show()
                         }
                     }

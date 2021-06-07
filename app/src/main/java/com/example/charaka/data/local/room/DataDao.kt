@@ -11,6 +11,15 @@ interface DataDao {
     @Query("SELECT * FROM bookentities")
     fun getBooks(): LiveData<List<Book>>
 
+    @Query("SELECT * FROM bookentities WHERE isBest = 1")
+    fun getBestBooks(): LiveData<List<Book>>
+
+    @Query("SELECT * FROM bookentities WHERE isPopular = 1")
+    fun getPopularBooks(): LiveData<List<Book>>
+
+    @Query("SELECT * FROM bookentities WHERE isRecommend = 1")
+    fun getRecommendedBooks(): LiveData<List<Book>>
+
     @Query("SELECT * FROM postentities")
     fun getPost(): LiveData<List<Post>>
 
@@ -19,6 +28,9 @@ interface DataDao {
 
     @Query("SELECT * FROM postentities WHERE saved = 1")
     fun getSavedPost(): LiveData<List<Post>>
+
+    @Query("SELECT * FROM postentities WHERE isCreated = 1")
+    fun getCreatedPost(): LiveData<List<Post>>
 
     @Query("SELECT * FROM bookentities WHERE read = 1")
     fun getRead(): LiveData<List<Book>>

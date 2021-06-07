@@ -25,9 +25,12 @@ class SearchViewModel(): ViewModel() {
                     for (data in responseList!!){
                         val books = Book(data.id!!,
                         data.volumeInfo?.title!!,
-                        data.volumeInfo.imageLinks?.thumbnail!!,
+                        data.volumeInfo.imageLinks?.thumbnail ?: "Unavailable",
                         data.volumeInfo.authors?.get(0) ?: "Unavailable",
-            data.volumeInfo.averageRating ?: 0,
+                                false,
+                                false,
+                                false,
+            data.volumeInfo.averageRating?.toInt() ?: 0.0.toInt(),
                             0,
             0,
                         data.volumeInfo.description ?: "Unavailable")
@@ -36,12 +39,12 @@ class SearchViewModel(): ViewModel() {
                     listSearch.postValue(listBooks)
                     Log.i("Books Asu", listBooks.toString())
                 } else {
-                    Log.e("Error", "Error Asuuu")
+                    Log.e("Error", response.message())
                 }
             }
 
             override fun onFailure(call: Call<BookResponse>, t: Throwable) {
-                Log.e("ERROR", "ERRORRR JANCOKKKKKKK")
+                Log.e("ERROR", t.message!!)
             }
         })
         return listSearch

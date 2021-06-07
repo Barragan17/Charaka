@@ -15,10 +15,12 @@ import com.example.charaka.R
 import com.example.charaka.data.local.entity.User
 import com.example.charaka.databinding.ActivitySignInBinding
 import com.example.charaka.ui.home.HomeActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 class SignInActivity : AppCompatActivity(), View.OnClickListener {
 
+    private lateinit var auth: FirebaseAuth
     private lateinit var mAuth: DatabaseReference
     private lateinit var binding: ActivitySignInBinding
 
@@ -31,6 +33,7 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        auth = FirebaseAuth.getInstance()
         mAuth = FirebaseDatabase.getInstance().getReference("users")
 
         binding = ActivitySignInBinding.inflate(layoutInflater)
@@ -101,9 +104,7 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
                             }
 
                             if (isLoginMatch == true) {
-                                val intent = Intent(this@SignInActivity, HomeActivity::class.java)
-                                intent.putExtra(HomeActivity.EXTRA_USER, userExtra)
-                                startActivity(intent)
+                                loginUser(inputEmail, inputPassword)
                             } else {
                                 val builder = AlertDialog.Builder(this@SignInActivity)
                                 builder.setTitle(android.R.string.dialog_alert_title)
@@ -145,5 +146,29 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
         changeFont()
+    }
+
+    private fun loginUser(email: String, password: String) {
+        auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this){
+                    if (it.isSuccessful){
+                        Intent(this@SignInActivity, HomeActivity::class.java).also { intent ->
+                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            startActivity(intent)
+                        }
+                    }else {
+                        Toast.makeText(this, it.exception?.message, Toast.LENGTH_SHORT).show()
+                    }
+                }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if(auth.currentUser != null){
+            Intent(this, HomeActivity::class.java).also { intent ->
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+            }
+        }
     }
 }

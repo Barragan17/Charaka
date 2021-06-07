@@ -1,15 +1,20 @@
 package com.example.charaka.ui.detail
 
+import android.content.Intent
 import android.graphics.Color
 import android.media.Rating
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.example.charaka.AddPostActivity
 import com.example.charaka.R
 import com.example.charaka.data.local.entity.Book
 import com.example.charaka.databinding.ActivityDetailBinding
+import com.example.charaka.ui.profile.ProfileActivity
 import com.shashank.sony.fancytoastlib.FancyToast
 import org.koin.android.ext.android.bind
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -21,6 +26,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityDetailBinding
+    private lateinit var detailBook: Book
     private val detailViewModel: DetailViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?){
@@ -28,9 +34,9 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val detailBook = intent.getParcelableExtra<Book>(EXTRA_BOOKS)
+        detailBook = intent.getParcelableExtra(EXTRA_BOOKS)!!
 
-        supportActionBar?.title = detailBook?.bookTitle
+        supportActionBar?.title = detailBook.bookTitle
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         populateBooks(detailBook)
@@ -64,6 +70,7 @@ class DetailActivity : AppCompatActivity() {
             binding.ratingRate.setOnRatingBarChangeListener { _, rating, _ ->
                 detailViewModel.setRating(detailBook, rating.toInt())
                 FancyToast.makeText(this, "Rating Saved", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show()
+                binding.tvRatingText.text = "Your Rating"
             }
         }
     }
@@ -85,6 +92,22 @@ class DetailActivity : AppCompatActivity() {
         } else {
             binding.btnRead.setBackgroundColor(resources.getColor(R.color.blue_200))
             binding.btnRead.setTextColor(resources.getColor(R.color.white))
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.book_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem)= when(item.itemId) {
+        R.id.book_menu -> {
+            val intent = Intent(this, AddPostActivity::class.java)
+            intent.putExtra(AddPostActivity.EXTRA_POST, detailBook)
+            startActivity(intent)
+            true
+        } else -> {
+            super.onOptionsItemSelected(item)
         }
     }
 }

@@ -5,8 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.charaka.data.local.entity.Book
 import com.example.charaka.data.local.entity.Post
-import com.example.charaka.data.remote.response.BookResponse
-import com.example.charaka.data.remote.response.ItemsItem
+import com.example.charaka.data.remote.response.*
 import com.example.charaka.network.ApiConfig
 import com.example.charaka.utils.DataDummy
 import retrofit2.Call
@@ -15,37 +14,73 @@ import retrofit2.Response
 
 class RemoteDataSource {
 
-    fun getAllBooks(): LiveData<ApiResponse<List<Book>>>{
+    fun getBestBooks(): LiveData<ApiResponse<List<Book>>>{
         val resultBooks = MutableLiveData<ApiResponse<List<Book>>>()
         resultBooks.value = ApiResponse.success(DataDummy.generateBooks())
 
         return resultBooks
     }
 
-    fun getAllPosts(): LiveData<ApiResponse<List<Post>>>{
-        val resultPosts = MutableLiveData<ApiResponse<List<Post>>>()
-        resultPosts.value = ApiResponse.success(DataDummy.generatePosts())
+    fun getPopularBooks(): LiveData<ApiResponse<List<Book>>>{
+        val resultPopularBooks = MutableLiveData<ApiResponse<List<Book>>>()
+        resultPopularBooks.value = ApiResponse.success(DataDummy.generatePopularBooks())
 
-        return resultPosts
+        return resultPopularBooks
     }
 
-    fun searchBooks(search: String): LiveData<List<ItemsItem>>{
-        val resultBooks = MutableLiveData<List<ItemsItem>>()
-        ApiConfig.getApiService().getSearchBooks(search).enqueue(object : Callback<BookResponse>{
-            override fun onResponse(call: Call<BookResponse>, response: Response<BookResponse>) {
+    fun getRecommendedBooks(): LiveData<ApiResponse<List<Docs>>>{
+        val resultBooks = MutableLiveData<ApiResponse<List<Docs>>>()
+        ApiConfig.getCustomApiService().getRecommendBooks().enqueue(object : Callback<BooksResponse>{
+            override fun onResponse(call: Call<BooksResponse>, response: Response<BooksResponse>) {
                 if(response.isSuccessful){
-                    resultBooks.value = response.body()?.items!!
-                    Log.i("Books Asu", response.body()!!.items.toString())
+                    resultBooks.value = ApiResponse.success(response.body()?.docs!!)
                 } else {
-                    Log.e("Error", "Error Asuuu")
+                    Log.e("Error", "Error : ${response.message()}")
                 }
             }
 
-            override fun onFailure(call: Call<BookResponse>, t: Throwable) {
+            override fun onFailure(call: Call<BooksResponse>, t: Throwable) {
+                Log.e("Error", "Error : ${t.message}")
+            }
+        })
+        return resultBooks
+    }
+
+    fun getAllPosts(): LiveData<ApiResponse<List<DocsItem>>>{
+        val resultPosts = MutableLiveData<ApiResponse<List<DocsItem>>>()
+        ApiConfig.getCustomApiService().getPost().enqueue(object : Callback<FeedsResponse>{
+            override fun onResponse(call: Call<FeedsResponse>, response: Response<FeedsResponse>) {
+                if(response.isSuccessful){
+                    resultPosts.value = ApiResponse.success(response.body()?.docs!!)
+                }
+                else {
+                    Log.e("Error", "Error: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<FeedsResponse>, t: Throwable) {
                 Log.e("On Failure", t.message.toString())
             }
         })
-        Log.d("RESULTTTTT", resultBooks.value.toString())
-        return resultBooks
+        return resultPosts
+    }
+
+    fun addPost(postData: PostInfo){
+        val resultPosts = MutableLiveData<ApiResponse<PostResponse>>()
+        ApiConfig.getCustomApiService().postPosts(postData).enqueue(object : Callback<PostResponse>{
+            override fun onResponse(call: Call<PostResponse>, response: Response<PostResponse>) {
+                if(response.isSuccessful){
+                    resultPosts.value = ApiResponse.success(response.body()!!)
+                    Log.e("Result", resultPosts.value?.body?.data.toString())
+                } else {
+                    Log.e("Error On Response", "Ora iso nge post")
+                }
+            }
+
+            override fun onFailure(call: Call<PostResponse>, t: Throwable) {
+                Log.e("Error", "Ora iso nge post")
+            }
+
+        })
     }
 }

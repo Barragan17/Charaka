@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "891094674715",
+    "firebase_url": "https://charaka-default-rtdb.firebaseio.com",
+    "project_id": "charaka",
+    "storage_bucket": "charaka.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:891094674715:android:9c5db6b7c076a1629137be",
+        "android_client_info": {
+          "package_name": "com.example.charaka"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "891094674715-kirc7aela2p94g0jj0d822sndckii3ke.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.charaka",
+            "certificate_hash": "939a9856e000afc5025a30618573bc99bc9d05c2"
+          }
+        },
+        {
+          "client_id": "891094674715-kmiqdoe8eil096ci58jgji8nulta6q0u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQwU7ibCF2C-6eKR0V-Y-qu-3_f9RKOPM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "891094674715-kmiqdoe8eil096ci58jgji8nulta6q0u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

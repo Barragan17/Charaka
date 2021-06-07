@@ -20,6 +20,7 @@ import es.dmoral.toasty.Toasty
 
 class SignUpActivity : AppCompatActivity(), View.OnClickListener {
 
+    private lateinit var auth: FirebaseAuth
     private lateinit var mAuth: DatabaseReference
     private lateinit var binding: ActivitySignUpBinding
 
@@ -46,6 +47,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
             finish()
         }
 
+        auth = FirebaseAuth.getInstance()
         mAuth = FirebaseDatabase.getInstance().getReference("users")
 
         // widget pairing...
@@ -90,8 +92,6 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
                             signUpBtn?.setText("Wait")
                             signUpBtn?.setEnabled(false)
 
-//                            registerUser(inputEmail, inputPassword)
-
                             // check if already exists?
                             mAuth.orderByChild("email").equalTo(inputEmail).addListenerForSingleValueEvent(object :
                                 ValueEventListener {
@@ -127,18 +127,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
                                                 if (p0 != null) {
                                                     Toast.makeText(this@SignUpActivity, p0.message, Toast.LENGTH_SHORT).show()
                                                 } else {
-                                                    val builder = AlertDialog.Builder(this@SignUpActivity)
-                                                    builder.setTitle(android.R.string.dialog_alert_title)
-                                                    builder.setMessage(R.string.sign_up_success)
-                                                    builder.setPositiveButton(R.string.sign_in_now) { dialog, which ->
-
-                                                        val intent = Intent(this@SignUpActivity, SignInActivity::class.java)
-                                                        intent.putExtra("logged_in_email", inputEmail)
-                                                        startActivity(intent)
-
-                                                        finish()
-                                                    }
-                                                    builder.show()
+                                                    registerUser(inputEmail, inputPassword)
                                                 }
                                             }
                                         })
@@ -194,34 +183,34 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
         changeFont()
     }
 
-//    private fun registerUser(email: String, password: String){
-//        mAuth.createUserWithEmailAndPassword(email, password)
-//            .addOnCompleteListener(this) {
-//                if (it.isSuccessful) {
-//                    signUpBtn?.setText(R.string.sign_up)
-//                    signUpBtn?.setEnabled(true)
-//                    val user = User((0..100).random().toString(), )
-//                    val builder = AlertDialog.Builder(this@SignUpActivity)
-//                    builder.setTitle(android.R.string.dialog_alert_title)
-//                    builder.setMessage(R.string.sign_up_success)
-//                    builder.setPositiveButton(R.string.sign_in_now) { dialog, which ->
-//                        val intent = Intent(this@SignUpActivity, HomeActivity::class.java)
-//                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-//                        startActivity(intent)
-//                    }
-//                } else {
-//                    Toasty.error(this, it.exception?.message.toString(), Toast.LENGTH_SHORT).show()
-//                }
-//            }
-//    }
+    private fun registerUser(email: String, password: String){
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) {
+                if (it.isSuccessful) {
+                    signUpBtn?.setText(R.string.sign_up)
+                    signUpBtn?.setEnabled(true)
+                    val builder = AlertDialog.Builder(this@SignUpActivity)
+                    builder.setTitle(android.R.string.dialog_alert_title)
+                    builder.setMessage(R.string.sign_up_success)
+                    builder.setPositiveButton(R.string.sign_in_now) { dialog, which ->
+                        val intent = Intent(this@SignUpActivity, HomeActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        startActivity(intent)
+                    }
+                    builder.show()
+                } else {
+                    Toasty.error(this, it.exception?.message.toString(), Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
 
-//    override fun onStart() {
-//        super.onStart()
-//        if(mAuth.currentUser != null){
-//            Intent(this, HomeActivity::class.java).also { intent ->
-//                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-//                startActivity(intent)
-//            }
-//        }
-//    }
+    override fun onStart() {
+        super.onStart()
+        if(auth.currentUser != null){
+            Intent(this, HomeActivity::class.java).also { intent ->
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+            }
+        }
+    }
 }

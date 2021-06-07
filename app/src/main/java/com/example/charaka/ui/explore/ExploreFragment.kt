@@ -26,7 +26,6 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class ExploreFragment : Fragment() {
 
     private val exploreViewModel: ExploreViewModel by viewModel()
-    private val searchViewModel: SearchViewModel by viewModel()
     private lateinit var binding: FragmentExploreBinding
     private lateinit var searchView: androidx.appcompat.widget.SearchView
 
@@ -50,13 +49,16 @@ class ExploreFragment : Fragment() {
                 if(post != null){
                     when(post.status){
                         Status.LOADING -> {
-
+                            binding.progressBar.visibility = View.VISIBLE
                         }
                         Status.SUCCESS -> {
+                            binding.progressBar.visibility = View.GONE
                             postAdapter.setPost(post.data!!)
                             postAdapter.notifyDataSetChanged()
                         }
                         Status.ERROR -> {
+                            binding.progressBar.visibility = View.GONE
+                            binding.ivNotFound.visibility = View.VISIBLE
                             Toast.makeText(context, "There is some mistakes", Toast.LENGTH_SHORT).show()
                         }
                     }
@@ -74,8 +76,8 @@ class ExploreFragment : Fragment() {
     private fun searchClick(){
         searchView.setOnQueryTextListener(object: androidx.appcompat.widget.SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
-                Log.d("QUERY", query!!)
-                val newQuery = query.replace("\\s".toRegex(), "")
+                val newQuery = query?.replace("\\s".toRegex(), "")
+                Log.d("QUERY", newQuery!!)
                 val mBundle = Bundle()
                 mBundle.putString(SearchFragment.EXTRA_DATA, newQuery)
 

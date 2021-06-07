@@ -15,7 +15,10 @@ object DataDummy {
             "Ready Player One",
             "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
             "Ernest Cline",
-            9,
+                true,
+                false,
+                false,
+            5,
             0,
             0,
             "The story, set in a dystopia in 2045, follows protagonist Wade Watts on his search for an Easter egg in a worldwide virtual reality game, the discovery of which would lead him to inherit the game creator's fortune."
@@ -24,240 +27,145 @@ object DataDummy {
 
         val books2 = Book(
             "2",
-            "Ready Player One",
-            "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
-            "Ernest Cline",
-            9,
+            "The Da Vinci Code",
+            "https://coverart.oclc.org/ImageWebSvc/oclc/+-+9154585356_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
+            "Dan Brown",
+                true,
+                false,
+                false,
+            4,
             0,
             0,
-            "The story, set in a dystopia in 2045, follows protagonist Wade Watts on his search for an Easter egg in a worldwide virtual reality game, the discovery of which would lead him to inherit the game creator's fortune."
+            "A murder in Paris' Louvre Museum and cryptic clues in some of Leonardo da Vinci's most famous paintings lead to the discovery of a religious mystery. For 2,000 years a secret society closely guards information that -- should it come to light -- could rock the very foundations of Christianity."
         )
         books.add(books2)
 
         val books3 = Book(
             "3",
-            "Ready Player One",
-            "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
-            "Ernest Cline",
-            9,
+            "Angels & Demons",
+            "https://coverart.oclc.org/ImageWebSvc/oclc/+-+6398181766_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
+            "Dan Brown",
+                true,
+                false,
+                false,
+            4,
             0,
             0,
-            "The story, set in a dystopia in 2045, follows protagonist Wade Watts on his search for an Easter egg in a worldwide virtual reality game, the discovery of which would lead him to inherit the game creator's fortune."
+            "\t\n" +
+                    "The murder of a world-famous physicist raises fears that the Illuminati are operating again after centuries of silence, and religion professor Robert Langdon is called in to assist with the case."
         )
         books.add(books3)
 
         val books4 = Book(
             "4",
-            "Ready Player One",
-            "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
-            "Ernest Cline",
-            9,
+            "Harry Potter And The Deathly Hallows",
+            "https://coverart.oclc.org/ImageWebSvc/oclc/+-+503686006_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
+            "J K Rowling",
+                true,
+                false,
+                false,
+            4,
             0,
             0,
-            "The story, set in a dystopia in 2045, follows protagonist Wade Watts on his search for an Easter egg in a worldwide virtual reality game, the discovery of which would lead him to inherit the game creator's fortune."
+            "\t\n" +
+                    "Burdened with the dark, dangerous, and seemingly impossible task of locating and destroying Voldemort's remaining Horcruxes, Harry, feeling alone and uncertain about his future, struggles to find the inner strength he needs to follow the path set out before him."
         )
         books.add(books4)
 
         val books5 = Book(
             "5",
-            "Ready Player One",
-            "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
-            "Ernest Cline",
-            9,
+            "The Hobbit",
+            "https://coverart.oclc.org/ImageWebSvc/oclc/+-+3597429966_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
+            "J R R Tolkien",
+                true,
+                false,
+                false,
+            5,
             0,
             0,
             "The story, set in a dystopia in 2045, follows protagonist Wade Watts on his search for an Easter egg in a worldwide virtual reality game, the discovery of which would lead him to inherit the game creator's fortune."
         )
         books.add(books5)
-
-        val books6 = Book(
-            "6",
-            "Ready Player One",
-            "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
-            "Ernest Cline",
-            9,
-            0,
-            0,
-            "The story, set in a dystopia in 2045, follows protagonist Wade Watts on his search for an Easter egg in a worldwide virtual reality game, the discovery of which would lead him to inherit the game creator's fortune."
-        )
-        books.add(books6)
-
-        val books7 = Book(
-            "7",
-            "Ready Player One",
-            "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
-            "Ernest Cline",
-            9,
-            0,
-            0,
-            "The story, set in a dystopia in 2045, follows protagonist Wade Watts on his search for an Easter egg in a worldwide virtual reality game, the discovery of which would lead him to inherit the game creator's fortune."
-        )
-        books.add(books7)
-
-        val books8 = Book(
-            "8",
-            "Ready Player One",
-            "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
-            "Ernest Cline",
-            9,
-            0,
-            0,
-            "The story, set in a dystopia in 2045, follows protagonist Wade Watts on his search for an Easter egg in a worldwide virtual reality game, the discovery of which would lead him to inherit the game creator's fortune."
-        )
-        books.add(books8)
-
-        val books9 = Book(
-            "9",
-            "Ready Player One",
-            "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
-            "Ernest Cline",
-            9,
-            0,
-            0,
-            "The story, set in a dystopia in 2045, follows protagonist Wade Watts on his search for an Easter egg in a worldwide virtual reality game, the discovery of which would lead him to inherit the game creator's fortune."
-        )
-        books.add(books9)
-
-        val books10 = Book(
-            "10",
-            "Ready Player One",
-            "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
-            "Ernest Cline",
-            9,
-            0,
-            0,
-            "The story, set in a dystopia in 2045, follows protagonist Wade Watts on his search for an Easter egg in a worldwide virtual reality game, the discovery of which would lead him to inherit the game creator's fortune."
-        )
-        books.add(books10)
-
         return books
     }
 
-    fun generatePosts(): ArrayList<Post>{
-        val posts = ArrayList<Post>()
-
-        val post1 = Post(
-                1,
-                "Ragil",
-                "Mantap Sekali Bukunyaaaa",
-        "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
-                "Ready Player One",
-                "Ernest Cline",
+    fun generatePopularBooks(): List<Book>{
+        val books = ArrayList<Book>()
+        val books1 = Book(
+                "6",
+                "The Hunger Games",
+                "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1586722975l/2767052.jpg",
+                "Suzanne Collins",
+                false,
+                true,
+                false,
                 4,
-                20,
-                20)
+                0,
+                0,
+                "Sixteen-year-old Katniss Everdeen, who lives alone with her mother and younger sister, regards it as a death sentence when she steps forward to take her sister's place in the Games. But Katniss has been close to dead before—and survival, for her, is second nature. Without really meaning to, she becomes a contender. But if she is to win, she will have to start making choices that weight survival against humanity and life against love."
+        )
+        books.add(books1)
 
-        posts.add(post1)
-
-        val post2 = Post(
-                2,
-                "Ragil",
-                "Mantap Sekali Bukunyaaaa",
-                "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
-                "Ready Player One",
-                "Ernest Cline",
-                4,
-                20,
-                20)
-        posts.add(post2)
-
-        val post3 = Post(
-                3,
-                "Ragil",
-                "Mantap Sekali Bukunyaaaa",
-                "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
-                "Ready Player One",
-                "Ernest Cline",
-                4,
-                20,
-                20)
-        posts.add(post3)
-
-        val post4 = Post(
-                4,
-                "Ragil",
-                "Mantap Sekali Bukunyaaaa",
-                "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
-                "Ready Player One",
-                "Ernest Cline",
-                4,
-                20,
-                20)
-        posts.add(post4)
-
-        val post5 = Post(
+        val books2 = Book(
+                "7",
+                "The Book Thief",
+                "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1522157426l/19063._SY475_.jpg",
+                "Markus Zusak",
+                false,
+                true,
+                false,
                 5,
-                "Ragil",
-                "Mantap Sekali Bukunyaaaa",
-                "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
-                "Ready Player One",
-                "Ernest Cline",
-                4,
-                20,
-                20)
-        posts.add(post5)
+                0,
+                0,
+                "The Book Thief tells the story of Liesel, a little girl who is taken to a new home because her mother can't afford to take care of her. The story is told by Death, who becomes a character you come to respect and even feel sorry for by the end."
+        )
+        books.add(books2)
 
-        val post6 = Post(
-                6,
-                "Ragil",
-                "Mantap Sekali Bukunyaaaa",
-                "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
-                "Ready Player One",
-                "Ernest Cline",
-                4,
-                20,
-                20)
-        posts.add(post6)
+        val books3 = Book(
+                "8",
+                "The Kite Runner",
+                "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1579036753l/77203._SY475_.jpg",
+                "Khaled Hosseini",
+                false,
+                true,
+                false,
+                5,
+                0,
+                0,
+                "Ultimately, The Kite Runner is a novel about relationships — specifically the relationships between Amir and Hassan, Baba, Rahim Khan, Soraya, and Sohrab — and how the complex relationships in our lives overlap and connect to make us the people we are."
+        )
+        books.add(books3)
 
-        val post7 = Post(
-                7,
-                "Ragil",
-                "Mantap Sekali Bukunyaaaa",
-                "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
-                "Ready Player One",
-                "Ernest Cline",
-                4,
-                20,
-                20)
-        posts.add(post7)
+        val books4 = Book(
+                "9",
+                "A Thousand Splendid Suns",
+                "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1345958969l/128029.jpg",
+                "Khaled Hosseini",
+                false,
+                true,
+                false,
+                5,
+                0,
+                0,
+                "A Thousand Splendid Suns, a novel by Khaled Hosseini, is a gripping tale of two young women, Mariam, an illegitimate child, and Laila, an orphan, and the difficult lives they lead after marrying the same man, Rasheed."
+        )
+        books.add(books4)
 
-        val post8 = Post(
-                8,
-                "Ragil",
-                "Mantap Sekali Bukunyaaaa",
-                "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
-                "Ready Player One",
-                "Ernest Cline",
+        val books5 = Book(
+                "10",
+                "Twilight",
+                "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1361039443l/41865.jpg",
+                "Stephenie Meyer",
+                false,
+                true,
+                false,
                 4,
-                20,
-                20)
-        posts.add(post8)
-
-        val post9 = Post(
-                9,
-                "Ragil",
-                "Mantap Sekali Bukunyaaaa",
-                "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
-                "Ready Player One",
-                "Ernest Cline",
-                4,
-                20,
-                20)
-        posts.add(post9)
-
-        val post10 = Post(
-                10,
-                "Ragil",
-                "Mantap Sekali Bukunyaaaa",
-                "https://coverart.oclc.org/ImageWebSvc/oclc/+-+1807922466_140.jpg?SearchOrder=+-+OT,OS,TN,GO,FA",
-                "Ready Player One",
-                "Ernest Cline",
-                4,
-                20,
-                20)
-        posts.add(post10)
-
-        return posts
+                0,
+                0,
+                "Twilight tells the story of Bella, an average 17 year old girl who moves to Forks, WA to live with her father after her mother remarries a traveling minor league baseball player. In Forks, she meets Edward, a mysterious, gorgeous, private student, who tends to travel in a pack with his family"
+        )
+        books.add(books5)
+        return books
     }
 
     fun generateUsers(): ArrayList<User>{
@@ -271,67 +179,32 @@ object DataDummy {
         users.add(users1)
 
         val users2 = User(
-                "1",
-                "Ragil",
-                "ragil_mantul"
+                "2",
+                "Linus",
+                "Linus_Randu"
         )
         users.add(users2)
 
         val users3 = User(
-                "1",
-                "Ragil",
-                "ragil_mantul"
+                "3",
+                "Tegar",
+                "Tegar170"
         )
         users.add(users3)
 
         val users4 = User(
-                "1",
-                "Ragil",
-                "ragil_mantul"
+                "4",
+                "rafa",
+                "rafa_fara"
         )
         users.add(users4)
 
         val users5 = User(
-                "1",
-                "Ragil",
-                "ragil_mantul"
+                "5",
+                "Adit",
+                "adit_mantul"
         )
         users.add(users5)
-
-        val users6 = User(
-                "1",
-                "Ragil",
-                "ragil_mantul"
-        )
-        users.add(users6)
-
-        val users7 = User(
-                "1",
-                "Ragil",
-                "ragil_mantul"
-        )
-        users.add(users7)
-
-        val users8 = User(
-                "1",
-                "Ragil",
-                "ragil_mantul"
-        )
-        users.add(users8)
-
-        val users9 = User(
-                "1",
-                "Ragil",
-                "ragil_mantul"
-        )
-        users.add(users9)
-
-        val users10 = User(
-                "1",
-                "Ragil",
-                "ragil_mantul"
-        )
-        users.add(users10)
 
         return users
     }

@@ -116,7 +116,7 @@
                     android:id="@+id/iv_like"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/ic_baseline_favorite_border_24"
+                    android:src="@drawable/ic_baseline_favorite_24"
                     app:tint="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -126,39 +126,10 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginStart="8dp"
-                    android:src="@drawable/ic_baseline_mode_comment_24"
+                    android:src="@drawable/ic_baseline_bookmark_24"
                     app:tint="@color/white"
                     app:layout_constraintStart_toEndOf="@+id/iv_like"
                     app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/iv_share"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/ic_baseline_bookmark_border_24"
-                    app:tint="@color/white"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-
-                <TextView
-                    android:id="@+id/tv_like"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:textColor="@color/white"
-                    android:text="10"
-                    app:layout_constraintStart_toStartOf="@+id/iv_like"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_like" />
-
-                <TextView
-                    android:id="@+id/tv_comment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:textColor="@color/white"
-                    android:text="10"
-                    app:layout_constraintStart_toStartOf="@+id/iv_comment"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_comment"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 

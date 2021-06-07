@@ -9,5 +9,9 @@ import com.example.charaka.vo.Resource
 
 class BooksViewModel(private val dataRepository: DataRepository) : ViewModel() {
 
-    fun getBooks(): LiveData<Resource<List<Book>>> = dataRepository.getAllBooks()
+    fun getBestBooks(): LiveData<Resource<List<Book>>> = dataRepository.getBestBooks()
+
+    fun getPopularBooks(): LiveData<Resource<List<Book>>> = dataRepository.getPopularBooks()
+
+    fun getRecommendedBooks(): LiveData<Resource<List<Book>>> = dataRepository.getRecommendedBooks()
 }

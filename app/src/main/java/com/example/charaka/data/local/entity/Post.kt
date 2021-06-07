@@ -13,13 +13,16 @@ data class Post(
     @PrimaryKey
     @NonNull
     @ColumnInfo(name = "id")
-    val id: Int,
+    val id: String,
 
     @ColumnInfo(name = "userName")
     val userName: String,
 
     @ColumnInfo(name = "userComment")
     val userComment: String,
+
+    @ColumnInfo(name = "booksId")
+    val booksId: String = "1",
 
     @ColumnInfo(name = "booksImage")
     val booksImage: String,
@@ -31,13 +34,16 @@ data class Post(
     val booksAuthor: String,
 
     @ColumnInfo(name = "booksRating")
-    val booksRating: Int,
+    val booksRating: String,
 
     @ColumnInfo(name = "likes")
-    val likes: Int,
+    val likes: String = "0",
 
     @ColumnInfo(name = "comments")
-    val comments: Int,
+    val comments: String = "0",
+
+    @ColumnInfo(name = "isCreated")
+    var isCreated: Boolean = false,
 
     @ColumnInfo(name = "liked")
     var liked: Boolean = false,

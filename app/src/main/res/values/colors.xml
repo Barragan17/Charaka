@@ -10,4 +10,5 @@
     <color name="placeholder">#6FB6B6B6</color>
     <color name="activated">#FFD700</color>
     <color name="blue_200">#49BDFE</color>
+    <color name="blue_400">#ADF1F1</color>
 </resources>
