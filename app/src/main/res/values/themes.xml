@@ -19,4 +19,9 @@
         <item name="colorControlActivated">@color/activated</item>
     </style>
 
+    <style name="RatingBarPlaceHolder" parent="Theme.AppCompat">
+        <item name="colorControlNormal">#DDDDDD</item>
+        <item name="colorControlActivated">@color/activated</item>
+    </style>
+
 </resources>

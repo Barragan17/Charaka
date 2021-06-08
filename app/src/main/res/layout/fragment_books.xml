@@ -33,29 +33,48 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ProgressBar
+            <com.facebook.shimmer.ShimmerFrameLayout
                 android:id="@+id/progressBarBest"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
                 android:layout_marginTop="24dp"
+                android:layout_marginEnd="6dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tv_best_books"
-                android:indeterminate="true"
-                android:indeterminateTintMode="src_atop"
-                android:indeterminateTint="@color/blue_200"/>
+                app:layout_constraintTop_toBottomOf="@+id/tv_best_books"
+                app:shimmer_auto_start="true">
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <include layout="@layout/item_book_placeholder" />
+
+                        <include layout="@layout/item_book_placeholder" />
+
+                        <include layout="@layout/item_book_placeholder" />
+
+                        <include layout="@layout/item_book_placeholder" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </com.facebook.shimmer.ShimmerFrameLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_best"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
                 android:layout_marginStart="6dp"
+                android:layout_marginTop="24dp"
                 android:layout_marginEnd="6dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_best_books"
-                app:layout_constraintEnd_toEndOf="parent"
                 tools:listitem="@layout/item_books" />
 
             <TextView
@@ -70,19 +89,6 @@
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/rv_best" />
-
-            <ProgressBar
-                android:id="@+id/progressBarPopular"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tv_popular_books"
-                android:indeterminate="true"
-                android:indeterminateTintMode="src_atop"
-                android:indeterminateTint="@color/blue_200"/>
-
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_popular"
@@ -110,17 +116,37 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/rv_popular" />
 
-            <ProgressBar
+            <com.facebook.shimmer.ShimmerFrameLayout
                 android:id="@+id/progressBarRecommend"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
                 android:layout_marginTop="24dp"
+                android:layout_marginEnd="6dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tv_books_recommendations"
-                android:indeterminate="true"
-                android:indeterminateTintMode="src_atop"
-                android:indeterminateTint="@color/blue_200"/>
+                app:layout_constraintTop_toBottomOf="@+id/tv_books_recommendations"
+                app:shimmer_auto_start="true">
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <include layout="@layout/item_book_placeholder" />
+
+                        <include layout="@layout/item_book_placeholder" />
+
+                        <include layout="@layout/item_book_placeholder" />
+
+                        <include layout="@layout/item_book_placeholder" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </com.facebook.shimmer.ShimmerFrameLayout>
 
 
             <androidx.recyclerview.widget.RecyclerView

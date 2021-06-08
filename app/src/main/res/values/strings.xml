@@ -40,4 +40,6 @@
     <string name="your_ratings">Your Ratings</string>
     <string name="ratings">Ratings</string>
     <string name="friends">Friends</string>
+    <string name="empty">Empty</string>
+    <string name="empty_post">You haven\'t Made any post yet</string>
 </resources>

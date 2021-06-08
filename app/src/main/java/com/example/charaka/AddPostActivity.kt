@@ -39,6 +39,8 @@ class AddPostActivity : AppCompatActivity() {
 
         detailBooks = intent.getParcelableExtra(EXTRA_POST)!!
 
+        supportActionBar?.title = "Post Book"
+
         populatePost(detailBooks!!)
     }
 

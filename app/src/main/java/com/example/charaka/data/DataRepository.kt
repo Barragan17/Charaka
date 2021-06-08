@@ -23,7 +23,7 @@ class DataRepository(
     private val appExecutors: AppExecutors
 ): DataDataSource{
     override fun getBestBooks(): LiveData<Resource<List<Book>>> {
-        return object : NetworkBoundResource<List<Book>, List<Book>>(appExecutors){
+        return object : NetworkBoundResource<List<Book>, List<Docs>>(appExecutors){
             override fun loadFromDB(): LiveData<List<Book>> {
                 return localDataSource.getAllBestBook()
             }
@@ -31,24 +31,24 @@ class DataRepository(
             override fun shouldFetch(data: List<Book>?): Boolean =
                 data == null || data.isEmpty()
 
-            override fun createCall(): LiveData<ApiResponse<List<Book>>> {
+            override fun createCall(): LiveData<ApiResponse<List<Docs>>> {
                  return remoteDataSource.getBestBooks()
             }
 
-            override fun saveCallResult(data: List<Book>) {
+            override fun saveCallResult(data: List<Docs>) {
                 val bookList = ArrayList<Book>()
                 for(response in data){
-                    val books = Book(response.bookId,
-                    response.bookTitle,
-                    response.bookCover,
-                    response.bookAuthor,
-                            bookIsBest = true,
-                            bookIsPopular = false,
-                            bookIsRecommend = false,
-                    response.bookRatings,
-                    response.userRatings,
-                    response.bookReviews,
-                    response.bookDesc)
+                    val books = Book(response.bookId.toString(),
+                        response.originalTitle!!,
+                        response.imageUrl!!,
+                        response.authors!!,
+                        bookIsBest = true,
+                        bookIsPopular = false,
+                        bookIsRecommend = false,
+                        response.averageRating?.toInt()!!,
+                        0,
+                        0,
+                        response.originalTitle)
                     bookList.add(books)
                 }
                 localDataSource.insertBooks(bookList)
@@ -97,7 +97,7 @@ class DataRepository(
                     data == null || data.isEmpty()
 
             override fun createCall(): LiveData<ApiResponse<List<Docs>>> =
-                remoteDataSource.getRecommendedBooks()
+                remoteDataSource.getRecommendBooks()
 
             override fun saveCallResult(data: List<Docs>) {
                 val bookList = ArrayList<Book>()

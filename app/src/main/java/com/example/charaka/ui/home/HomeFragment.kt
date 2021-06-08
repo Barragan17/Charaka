@@ -19,6 +19,7 @@ import com.example.charaka.databinding.FragmentHomeBinding
 import com.example.charaka.utils.DataDummy
 import com.example.charaka.vo.Status
 import org.koin.android.viewmodel.ext.android.viewModel
+import retrofit2.http.POST
 
 class HomeFragment : Fragment() {
 
@@ -40,13 +41,18 @@ class HomeFragment : Fragment() {
         val postAdapter = PostAdapter()
 
         homeViewModel.getCreatedPost().observe(viewLifecycleOwner, { posts ->
-            if(posts != null) {
+            if(posts.isNotEmpty()) {
+                Log.d("POST", posts.toString())
                 binding.progressBar.visibility = View.GONE
+                binding.tvEmpty.visibility = View.GONE
+                binding.animation.visibility = View.GONE
                 postAdapter.setPost(posts)
                 postAdapter.notifyDataSetChanged()
             } else {
+                Log.d("EMPTY", "EMPTY COKKKKKKKKK")
                 binding.progressBar.visibility = View.GONE
-                binding.ivNotFound.visibility = View.VISIBLE
+                binding.tvEmpty.visibility = View.VISIBLE
+                binding.animation.visibility = View.VISIBLE
             }
         })
 

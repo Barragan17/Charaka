@@ -14,10 +14,21 @@ import retrofit2.Response
 
 class RemoteDataSource {
 
-    fun getBestBooks(): LiveData<ApiResponse<List<Book>>>{
-        val resultBooks = MutableLiveData<ApiResponse<List<Book>>>()
-        resultBooks.value = ApiResponse.success(DataDummy.generateBooks())
+    fun getBestBooks(): LiveData<ApiResponse<List<Docs>>>{
+        val resultBooks = MutableLiveData<ApiResponse<List<Docs>>>()
+        ApiConfig.getCustomApiService().getBestBooks().enqueue(object: Callback<BooksResponse>{
+            override fun onResponse(call: Call<BooksResponse>, response: Response<BooksResponse>) {
+                if(response.isSuccessful){
+                    resultBooks.value = ApiResponse.success(response.body()?.docs!!)
+                } else {
+                    Log.e("Error", "Error : ${response.message()}")
+                }
+            }
 
+            override fun onFailure(call: Call<BooksResponse>, t: Throwable) {
+                Log.e("Error","Error: ${t.message}")
+            }
+        })
         return resultBooks
     }
 
@@ -28,9 +39,27 @@ class RemoteDataSource {
         return resultPopularBooks
     }
 
-    fun getRecommendedBooks(): LiveData<ApiResponse<List<Docs>>>{
+//    fun getRecommendedBooks(): LiveData<ApiResponse<List<Docs>>>{
+//        val resultBooks = MutableLiveData<ApiResponse<List<Docs>>>()
+//        ApiConfig.getCustomApiService().getRecommendBooks().enqueue(object : Callback<BooksResponse>{
+//            override fun onResponse(call: Call<BooksResponse>, response: Response<BooksResponse>) {
+//                if(response.isSuccessful){
+//                    resultBooks.value = ApiResponse.success(response.body()?.docs!!)
+//                } else {
+//                    Log.e("Error", "Error : ${response.message()}")
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<BooksResponse>, t: Throwable) {
+//                Log.e("Error", "Error : ${t.message}")
+//            }
+//        })
+//        return resultBooks
+//    }
+
+    fun getRecommendBooks(): LiveData<ApiResponse<List<Docs>>>{
         val resultBooks = MutableLiveData<ApiResponse<List<Docs>>>()
-        ApiConfig.getCustomApiService().getRecommendBooks().enqueue(object : Callback<BooksResponse>{
+        ApiConfig.getCustomApiService().getRecommendBooks().enqueue(object: Callback<BooksResponse>{
             override fun onResponse(call: Call<BooksResponse>, response: Response<BooksResponse>) {
                 if(response.isSuccessful){
                     resultBooks.value = ApiResponse.success(response.body()?.docs!!)
@@ -40,7 +69,7 @@ class RemoteDataSource {
             }
 
             override fun onFailure(call: Call<BooksResponse>, t: Throwable) {
-                Log.e("Error", "Error : ${t.message}")
+                Log.e("Error","Error: ${t.message}")
             }
         })
         return resultBooks

@@ -63,15 +63,15 @@ class BooksFragment : Fragment() {
                 if(books != null){
                     when(books.status){
                         Status.LOADING -> {
-                            binding.progressBarPopular.visibility = View.VISIBLE
+//                            binding.progressBarPopular.visibility = View.VISIBLE
                         }
                         Status.SUCCESS -> {
-                            binding.progressBarPopular.visibility = View.GONE
+//                            binding.progressBarPopular.visibility = View.GONE
                             popularBookAdapter.setBook(books.data!!)
                             popularBookAdapter.notifyDataSetChanged()
                         }
                         Status.ERROR -> {
-                            binding.progressBarPopular.visibility = View.GONE
+//                            binding.progressBarPopular.visibility = View.GONE
                             Toast.makeText(context, "There is some mistakes", Toast.LENGTH_SHORT).show()
                         }
                     }

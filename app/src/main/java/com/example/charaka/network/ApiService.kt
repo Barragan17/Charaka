@@ -22,5 +22,8 @@ interface ApiService {
     ): Call<PostResponse>
 
     @GET("books")
+    fun getBestBooks(): Call<BooksResponse>
+
+    @GET("predictions")
     fun getRecommendBooks(): Call<BooksResponse>
 }
