@@ -19,8 +19,8 @@ When the user uses for the first time, the user has to sign up with Google accou
 The app generates a book recommendation for users by invoking the recommender model in Google Cloud Functions. The data of the book itself is pulled from the book database in Firebase Firestore. User data including user reviews are also stored in Firebase Firestore.
 
 ## How to deploy/develop it?
-[Back-end](https://github.com/nurrizkyimani/bangkit-api-backend)
-[Machine Learning](https://github.com/Barragan17/Charaka/tree/master/Colab)
+* [Back-end](https://github.com/nurrizkyimani/bangkit-api-backend)
+* [Machine Learning](https://github.com/Barragan17/Charaka/tree/master/Colab)
 
 ## The Team
 * Azhara Fathin (ML Developer)
