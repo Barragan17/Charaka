@@ -20,6 +20,7 @@ The app generates a book recommendation for users by invoking the recommender mo
 
 ## How to deploy/develop it?
 [Back-end](https://github.com/nurrizkyimani/bangkit-api-backend)
+[Machine Learning](https://github.com/Barragan17/Charaka/tree/master/Colab)
 
 ## The Team
 * Azhara Fathin (ML Developer)
