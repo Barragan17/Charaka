@@ -79,22 +79,15 @@ class BooksFragment : Fragment() {
             })
 
             booksViewModel.getRecommendedBooks().observe(viewLifecycleOwner, { books ->
+                Log.d("BOOKS E", books.toString())
+                binding.progressBarRecommend.visibility = View.VISIBLE
                 if(books != null){
-                    when(books.status){
-                        Status.LOADING -> {
-                            binding.progressBarRecommend.visibility = View.VISIBLE
-                        }
-                        Status.SUCCESS -> {
-                            binding.progressBarRecommend.visibility = View.GONE
-                            recommendBookAdapter.setBook(books.data!!)
-                            recommendBookAdapter.notifyDataSetChanged()
-                        }
-                        Status.ERROR -> {
-                            binding.progressBarRecommend.visibility = View.GONE
-                            Toast.makeText(context, "There is some mistakes", Toast.LENGTH_SHORT).show()
-                        }
+                    binding.progressBarRecommend.visibility = View.GONE
+                    recommendBookAdapter.setBook(books)
+                    recommendBookAdapter.notifyDataSetChanged()
+                    binding.progressBarRecommend.visibility = View.GONE
+
                     }
-                }
             })
 
             with(binding.rvBest) {

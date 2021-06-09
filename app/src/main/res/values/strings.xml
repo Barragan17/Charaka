@@ -42,4 +42,5 @@
     <string name="friends">Friends</string>
     <string name="empty">Empty</string>
     <string name="empty_post">You haven\'t Made any post yet</string>
+    <string name="refresh">Refresh</string>
 </resources>
